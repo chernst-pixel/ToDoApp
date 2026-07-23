@@ -1,16 +1,17 @@
-import { Injectable, signal } from '@angular/core';
-import { tasks } from '../data/task';
-import { Task } from '../models/task';
+import { Injectable, signal, computed } from '@angular/core';
+import { tasks } from '../shared/data/task';
+import { Task } from '../shared/models/task';
 
 @Injectable({
     providedIn: 'root',
 })
 export class TaskService{
-    taskList = tasks;
-    todos = signal<Task[]>(this.taskList);
+    taskList    = tasks;
+    todos       = signal<Task[]>(this.taskList);
+    filter      = signal<'all' | 'complete' | 'incomplete'>('all');
 
     getAllTask(){
-        return this.todos;
+        return this.filteredTasks;
     }
 
     addNewTask(taskName: string){
@@ -21,6 +22,31 @@ export class TaskService{
             checked:    false,
         };
 
-        this.taskList.push(newTaskObject);
+        this.todos.update(tasks => [...tasks, newTaskObject])
     }
+
+    updateTask(todo: Task){
+        this.taskList.map((task) => {
+            if(task.id === todo.id){
+                return todo
+            }
+            return task;
+        });
+    }
+
+    filteredTasks = computed(() =>{
+        const tasks = this.todos();
+        const currentFilter = this.filter();
+
+        switch(currentFilter) {
+            case 'complete' :
+                return tasks.filter(t => t.status === 'complete');
+
+            case 'incomplete' :
+                return tasks.filter(t => t.status === 'incomplete');
+
+            default:
+                return tasks;
+        }
+    })
 }

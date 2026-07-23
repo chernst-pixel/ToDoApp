@@ -7,13 +7,13 @@ export let tasks = [
   },
   {
     id: 2,
-    name: 'Dackel füttern',
+    name: 'Kaffe trinken',
     status: 'incomplete',
     checked: false,
   },
   {
     id: 3,
-    name: 'Einkaufen',
+    name: 'schlafen',
     status: 'incomplete',
     checked: false,
   },

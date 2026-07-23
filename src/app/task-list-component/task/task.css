@@ -32,6 +32,10 @@
     margin-right: 1rem;
 }
 
+.striken {
+    text-decoration: line-through;
+}
+
 @media (max-width:500px) {
 
 
