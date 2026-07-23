@@ -35,10 +35,8 @@ export class TaskService{
     }
 
     filteredTasks = computed(() =>{
-        console.log("filteredTasks")
         const tasks = this.todos();
         const currentFilter = this.filter();
-        console.log("currentFilter", currentFilter)
 
         switch(currentFilter) {
             case 'complete' :

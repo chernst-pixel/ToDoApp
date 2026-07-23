@@ -15,17 +15,14 @@ export class FilterControls {
 
   showAll() {
     this.taskService.filter.set('all')
-    console.log("all")
   }
 
   showComplete() {
     this.taskService.filter.set('complete')
-    console.log("complete")
   }
 
   showIncomplete() {
     this.taskService.filter.set('incomplete')
-    console.log("incomplete")
   }
 
   
