@@ -1,0 +1,15 @@
+:host{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+
+
+@media (max-width:768px) {
+    :host {
+        align-items: flex-start;
+    }
+}

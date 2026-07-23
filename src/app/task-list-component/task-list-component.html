@@ -1,0 +1,10 @@
+<app-teaser [text] = "'Task List'"></app-teaser>
+<div class="section-container">
+    <ul class="task-list-container">
+        @if (tasklist().length >0){
+            @for (task of tasklist(); track task.id){
+                <app-task [task] = "task"></app-task>
+            }
+        }
+    </ul>
+</div>

@@ -1,0 +1,7 @@
+<li class="task-list-container-element">
+    <div class="checkbox-container">
+        <input [checked] = "task().checked" class="checkbox" type="checkbox"/>
+    </div>
+    <div class="task-text">{{ task().name }}</div>
+    <div class="task-status">{{ task().status }}</div>
+</li>
