@@ -19,6 +19,7 @@
 }
 .add-new-task-input{
     width: 100%;
+    border-color: #138522;
     border-radius: 25px;
     font-size: 1.2rem;
     padding: 0.7rem;
@@ -29,6 +30,7 @@
     :host{
         margin-left: 0;
         margin-top: 1rem;
+        align-items: flex-start;
     }
 
     .section-container{
