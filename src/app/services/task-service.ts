@@ -6,12 +6,12 @@ import { Task } from '../shared/models/task';
     providedIn: 'root',
 })
 export class TaskService{
-    taskList = tasks;
-    todos = signal<Task[]>(this.taskList);
-    filter = signal<'all' | 'complete' | 'incomplete'>('all');
+    taskList    = tasks;
+    todos       = signal<Task[]>(this.taskList);
+    filter      = signal<'all' | 'complete' | 'incomplete'>('all');
 
     getAllTask(){
-        return this.todos;
+        return this.filteredTasks;
     }
 
     addNewTask(taskName: string){
@@ -34,9 +34,11 @@ export class TaskService{
         });
     }
 
-    filteredTasks =computed(() =>{
+    filteredTasks = computed(() =>{
+        console.log("filteredTasks")
         const tasks = this.todos();
         const currentFilter = this.filter();
+        console.log("currentFilter", currentFilter)
 
         switch(currentFilter) {
             case 'complete' :

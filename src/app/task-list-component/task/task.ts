@@ -1,5 +1,5 @@
 import { Component, input, inject } from '@angular/core';
-import { Task } from '../../models/task';
+import { Task } from '../../shared/models/task';
 import { TaskService } from '../../services/task-service';
 
 @Component({
