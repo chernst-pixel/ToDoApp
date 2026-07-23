@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Teaser } from '../components/teaser/teaser';
 import { Button } from '../components/button/button';
+import { TaskService } from '../services/task-service';
 
 
 @Component({
@@ -9,4 +10,20 @@ import { Button } from '../components/button/button';
   templateUrl: './filter-controls.html',
   styleUrl: './filter-controls.css',
 })
-export class FilterControls {}
+export class FilterControls {
+  taskService = inject(TaskService)
+
+  showAll() {
+    this.taskService.filter.set('all')
+  }
+
+  showComplete() {
+    this.taskService.filter.set('complete')
+  }
+
+  showIncomplete() {
+    this.taskService.filter.set('incomplete')
+  }
+
+  
+}
